@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
+import 'package:linked_in/buissness_pages/buissness_profiles_page.dart';
 import 'package:linked_in/image_slider.dart';
-import 'package:linked_in/my_account.dart';
+import 'package:linked_in/add_vacancy.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -30,7 +31,7 @@ class _HomePageState extends State<HomePage> {
 
       appBar: new AppBar(
         backgroundColor: Colors.blueAccent,
-        title: Text("KAMGAR APP"),
+
         actions: <Widget>[
           new IconButton(
               icon: Icon(
@@ -65,11 +66,11 @@ class _HomePageState extends State<HomePage> {
           InkWell(
             onTap: () {
               Navigator.push(context,MaterialPageRoute(builder:
-                  (context)=>ProfileUI2(),
+                  (context)=>Add_Vacancy(),
               ));
             },
             child: ListTile(
-              title: Text("My account"),
+              title: Text("Ad vacancy/post"),
               leading: Icon(Icons.person),
             ),
           ),
@@ -100,7 +101,15 @@ class _HomePageState extends State<HomePage> {
           });
         },
       ),
-      body: ImageSlider(),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            ImageSlider(),
+            SizedBox(height:20,width:20),
+            companyProfile(),
+          ],
+        ),
+      ),
 
     );
   }
